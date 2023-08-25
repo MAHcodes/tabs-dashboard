@@ -16,8 +16,5 @@
     "tabs",
     "storage",
     "bookmarks"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  }
+  ]
 }

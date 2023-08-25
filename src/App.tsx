@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 
 import Bookmark from "pages/Bookmark";
 import Onboarding from "pages/Onboarding";
-import FirebaseSetup from "pages/FirebaseSetup";
 
 import AppContext from "src/AppContext";
 import Header from "components/Header";
@@ -42,7 +41,6 @@ const App = (): JSX.Element => {
   const loadData = async () => {
     try {
       const workspaceData = await WorkspaceModal.getAll();
-      console.log(workspaceData)
       if (workspaceData[0]) {
         setWorkspaceList(workspaceData);
         loadWorkspaceDb(
@@ -137,7 +135,6 @@ const App = (): JSX.Element => {
 
   const renderHeader = () => {
     if (
-      location.pathname.startsWith("/firebase") ||
       location.pathname === "/onboarding"
     ) {
       return null;
@@ -177,9 +174,6 @@ const App = (): JSX.Element => {
             </Route>
             <Route exact path={routes.ONBOARDING.path}>
               <Onboarding />
-            </Route>
-            <Route path={routes.FIREBASE.path}>
-              <FirebaseSetup />
             </Route>
           </Switch>
         </div>

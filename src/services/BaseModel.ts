@@ -1,12 +1,3 @@
-import {
-  collection,
-  setDoc,
-  getDocs,
-  query,
-  where,
-  doc,
-} from "firebase/firestore";
-
 const createUUID = () => {
   // Decent solution from http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
   let d = Date.now();
@@ -25,8 +16,6 @@ class BaseModal {
   constructor() {
     this.db = null;
     this.dbName = null;
-    this.firebaseDb = null;
-    this.firebaseCollection = null;
   }
 
   getModalName() {
@@ -96,35 +85,6 @@ class BaseModal {
 
   getModalKey() {
     return `${this.dbName}_${this.getModalName()}`;
-  }
-
-  setFirebasedb(db) {
-    this.firebaseDb = db;
-    this.firebaseCollection = collection(db, this.getModalKey());
-  }
-
-  setToFirebase(data) {
-    return setDoc(doc(this.firebaseDb, this.getModalKey(), data.id), data);
-  }
-
-  getAllFirebase() {
-    return getDocs(this.firebaseCollection);
-  }
-
-  async getAllUpdatedFirebase(timeFrom, timeTo) {
-    const querySnapshot = await getDocs(
-      query(
-        this.firebaseCollection,
-        where("syncAt", ">", timeFrom),
-        where("syncAt", "<=", timeTo),
-      ),
-    );
-
-    const dataToUpdate = [];
-
-    querySnapshot.forEach((doc) => dataToUpdate.push(doc.data()));
-
-    return dataToUpdate;
   }
 
   getAllUpdatedLocal(timeFrom, timeTo) {

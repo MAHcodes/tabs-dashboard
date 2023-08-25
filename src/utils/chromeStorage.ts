@@ -51,16 +51,3 @@ export const localSet = (values, id) => {
     );
   });
 };
-
-export const localRemoveModalSyncTime = () => {
-  return new Promise((resolve) => {
-    chrome.storage.local.get(null, (items) => {
-      const keyToRemove = Object.keys(items).filter((key) =>
-        key.endsWith("-modalSyncTime"),
-      );
-      chrome.storage.local.remove(keyToRemove, () => {
-        resolve();
-      });
-    });
-  });
-};

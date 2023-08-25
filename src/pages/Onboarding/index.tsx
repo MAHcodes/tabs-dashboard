@@ -29,10 +29,6 @@ const Onboarding = () => {
     }
   };
 
-  const onClickSyncNow = () => {
-    history.push("/firebase/create");
-  };
-
   const nextStep = () => {
     if (step === 1 && !newWorkspaceName) {
       toast.error("Please enter workspace name");
@@ -71,36 +67,14 @@ const Onboarding = () => {
             onChangeValue={setNewWorkspaceName}
           />
         </div>
-        <Button size="large" onClick={nextStep}>
+        <Button size="large" onClick={createAndLoadDashboard}>
           Next
         </Button>
       </div>
     );
   };
 
-  const renderStep3 = () => {
-    return (
-      <div className="welcome-block sync">
-        <i className="sync-icon ri-refresh-fill" />
-        <div className="title">Sync your data with firebase</div>
-        <div className="sub-title">
-          Add your firebase credentials to load current data or sync new data
-        </div>
-        <Button size="large" onClick={onClickSyncNow}>
-          Do it now
-        </Button>
-        <Button
-          className="btn-ml"
-          size="large"
-          onClick={createAndLoadDashboard}
-        >
-          Do it later
-        </Button>
-      </div>
-    );
-  };
-
-  const stepRenderer = [renderStep1, renderStep2, renderStep3];
+  const stepRenderer = [renderStep1, renderStep2];
 
   return <div className="onboarding-wrapper">{stepRenderer[step]()}</div>;
 };

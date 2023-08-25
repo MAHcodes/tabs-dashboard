@@ -9,9 +9,4 @@ export const routes = {
     path: "/onboarding",
     title: "Onboarding",
   },
-  FIREBASE: {
-    key: "FIREBASE",
-    path: "/firebase/:mode",
-    title: "Firebase Setup",
-  },
 };
