@@ -54,6 +54,7 @@ const BookmarkView = (): JSX.Element => {
     updateGroupData,
     enableBulkAction,
     setEnableBulkAction,
+    workspace,
   } = useContext(BookmarkContext);
 
   const sensors = useSensors(
@@ -219,6 +220,7 @@ const BookmarkView = (): JSX.Element => {
             },
             groupData: cancelResolveRef.current.data,
           });
+
         } else if (type === "bookmark") {
           const bookmark = bookmarks[bookmarkId];
           await createGroupAndAddBookmark({
@@ -262,6 +264,10 @@ const BookmarkView = (): JSX.Element => {
       updateData(type, {
         ...data,
       });
+
+      if (workspace?.settings?.bookmark?.closeTabAutomatically) {
+        chrome.tabs.remove(tabId)
+      }
     } else {
       if (
         !activeContainer ||

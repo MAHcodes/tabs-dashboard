@@ -44,6 +44,7 @@ const validationSchema = object({
     }),
     bookmark: object({
       openInNewTab: boolean().required(),
+      closeTabAutomatically: boolean().required(),
     }),
   }),
 });
@@ -138,13 +139,22 @@ const WorkspaceModal = ({
 
   const renderBookmark = () => {
     return (
-      <FormItem
-        formKey="settings.bookmark.openInNewTab"
-        label="Open url in new tab"
-        componentType="switch"
-      >
-        <Switch />
-      </FormItem>
+      <>
+        <FormItem
+          formKey="settings.bookmark.openInNewTab"
+          label="Open url in new tab"
+          componentType="switch"
+        >
+          <Switch />
+        </FormItem>
+        <FormItem
+          formKey="settings.bookmark.closeTabAutomatically"
+          label="Automatically close tab when added to collection"
+          componentType="switch"
+        >
+          <Switch />
+        </FormItem>
+      </>
     );
   };
 

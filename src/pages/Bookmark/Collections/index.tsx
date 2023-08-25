@@ -135,7 +135,7 @@ const Collections = (): JSX.Element => {
               here.
             </div>
             <Button size="large" onClick={toggleCreateModal}>
-              Add
+              Add Collection
             </Button>
           </div>
         )}

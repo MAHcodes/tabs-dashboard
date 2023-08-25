@@ -26,6 +26,7 @@ class WorkspaceModal extends BaseModal {
         },
         bookmark: {
           openInNewTab: true,
+          closeTabAutomatically: false,
         },
       },
     };
