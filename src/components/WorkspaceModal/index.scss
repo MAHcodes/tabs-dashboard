@@ -60,6 +60,7 @@
 
           .icon {
             transition: opacity 0.2s ease-in;
+            color: var(--body-bg-color);
             opacity: 0;
           }
 

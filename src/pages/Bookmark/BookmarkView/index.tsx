@@ -59,8 +59,7 @@ const BookmarkView = (): JSX.Element => {
   const sensors = useSensors(
     useSensor(MouseSensor, {
       activationConstraint: {
-        delay: 250,
-        tolerance: 10,
+        distance: 20,
       },
     }),
   );
