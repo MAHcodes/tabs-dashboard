@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Switch, Route, useLocation, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import Home from "pages/Home";
 import Bookmark from "pages/Bookmark";
 import Onboarding from "pages/Onboarding";
 import FirebaseSetup from "pages/FirebaseSetup";
@@ -35,6 +34,7 @@ const App = (): JSX.Element => {
       setIsLoading(false);
       history.push(routes[newWorkspace.settings.general.defaultApp].path);
     } catch (err) {
+      console.log(err)
       toast.error("Something went wrong. please try again");
     }
   };
@@ -42,6 +42,7 @@ const App = (): JSX.Element => {
   const loadData = async () => {
     try {
       const workspaceData = await WorkspaceModal.getAll();
+      console.log(workspaceData)
       if (workspaceData[0]) {
         setWorkspaceList(workspaceData);
         loadWorkspaceDb(
@@ -52,6 +53,7 @@ const App = (): JSX.Element => {
         setIsLoading(false);
       }
     } catch (err) {
+      console.log(err)
       toast.error("Something went wrong. please try again");
     }
   };
@@ -178,9 +180,6 @@ const App = (): JSX.Element => {
             </Route>
             <Route path={routes.FIREBASE.path}>
               <FirebaseSetup />
-            </Route>
-            <Route exact path={routes.HOME.path}>
-              <Home />
             </Route>
           </Switch>
         </div>

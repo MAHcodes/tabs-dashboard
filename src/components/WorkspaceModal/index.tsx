@@ -1,30 +1,23 @@
 import React, { useContext, useState } from "react";
 import _isEqual from "lodash/isEqual";
-import { object, string, array, boolean } from "yup";
+import { object, string, boolean } from "yup";
 import { toast } from "react-toastify";
 import classNames from "classnames";
 
-import { useFormik, FormikProvider } from "formik";
+import { useFormik } from "formik";
 
 import Modal from "components/Modal";
 import Button from "components/Button";
 import Input from "components/Input";
 import Switch from "components/Switch";
-import Radio from "components/Radio";
-import Select from "components/Select";
-import RadioGroup from "components/RadioGroup";
 import FormGroup from "components/FormGroup";
 import FormItem from "components/FormItem";
 import Tabs from "components/Tabs";
 import IconSelector from "components/IconSelector";
 import AppContext from "src/AppContext";
-import { routes } from "src/constants/routes";
-import EventManager from "utils/EventManager";
 import useFormError from "utils/useFormError";
 import useConfirm from "components/Confirm/useConfirm";
 import WorkspaceService from "services/WorkspaceModal";
-
-import MultiImage from "./MultiImage";
 
 import "./index.scss";
 
@@ -35,96 +28,9 @@ const menuItems = [
     icon: "ri-user-settings-line",
   },
   {
-    value: "HOME",
-    label: "Home",
-    icon: "ri-home-line",
-  },
-  {
     value: "BOOKMARK",
     label: "Bookmark",
     icon: "ri-bookmark-line",
-  },
-];
-
-const unsplashCategories = [
-  { label: "3D Renders", value: "3d-renders" },
-  { label: "Textures Patterns", value: "textures-patterns" },
-  { label: "Architecture", value: "architecture" },
-  { label: "Experimental", value: "experimental" },
-  { label: "Nature", value: "nature" },
-  { label: "Business Work", value: "business-work" },
-  { label: "Fashion", value: "fashion" },
-  { label: "Film", value: "film" },
-  { label: "Food Drink", value: "food-drink" },
-  { label: "Health", value: "health" },
-  { label: "People", value: "people" },
-  { label: "Interiors", value: "interiors" },
-  { label: "Street Photography", value: "street-photography" },
-  { label: "Travel", value: "travel" },
-  { label: "Animals", value: "animals" },
-  { label: "Spirituality", value: "spirituality" },
-  { label: "Arts Culture", value: "arts-culture" },
-  { label: "History", value: "history" },
-  { label: "Athletics", value: "athletics" },
-  { label: "Water", value: "water" },
-  { label: "Travel", value: "travel" },
-];
-
-const imageTypes = [
-  {
-    label: "Default",
-    value: "DEFAULT",
-  },
-  {
-    label: "No Image",
-    value: "NO_IMAGE",
-  },
-  {
-    label: "Rendom Image from Unsplash",
-    value: "UNSPLASH",
-  },
-  {
-    label: "Custom Images",
-    value: "CUSTOM",
-  },
-];
-
-const updateIntervalOptions = [
-  {
-    value: "MIN-30",
-    label: "30 Min",
-  },
-  {
-    value: "HR-1",
-    label: "1 Hr",
-  },
-  {
-    value: "HR-3",
-    label: "3 Hr",
-  },
-  {
-    value: "HR-6",
-    label: "6 Hr",
-  },
-  {
-    value: "HR-9",
-    label: "9 Hr",
-  },
-  {
-    value: "HR-12",
-    label: "12 Hr",
-  },
-  {
-    value: "DAY-1",
-    label: "Every Day",
-  },
-  {
-    value: "WEEK-1",
-    label: "Every Week",
-  },
-  {
-    value: "MONTH-1",
-    label: "Every Month",
   },
 ];
 
@@ -138,17 +44,6 @@ const validationSchema = object({
     }),
     bookmark: object({
       openInNewTab: boolean().required(),
-    }),
-    home: object({
-      userName: string(),
-      clockType: string().required(),
-      showGreeting: boolean().required(),
-      imageType: string().required(),
-      imageConfig: object({
-        customImageUrls: array().of(string()),
-        unsplashCategories: array().of(string()),
-        updateInterval: string(),
-      }),
     }),
   }),
 });
@@ -167,23 +62,8 @@ const WorkspaceModal = ({
   const { onSubmitForm, showError } = useFormError();
 
   const onSubmitData = async (dataToSave) => {
-    const { customImageUrls } = dataToSave.settings.home.imageConfig;
-    dataToSave.settings.home.imageConfig.customImageUrls =
-      customImageUrls.filter((i) => !!i);
-
     try {
       const response = await updateWorkspace(dataToSave);
-
-      if (
-        response.settings.home.imageType !==
-          dataToEdit?.settings?.home?.imageType ||
-        !_isEqual(
-          response.settings.home.imageConfig,
-          dataToEdit?.settings?.home?.imageConfig,
-        )
-      ) {
-        EventManager.emit("refreshImage", response);
-      }
 
       if (!dataToSave.id) {
         setWorkSpace(response);
@@ -229,12 +109,6 @@ const WorkspaceModal = ({
   const renderGeneral = () => {
     return (
       <>
-        <FormItem formKey="settings.general.defaultApp" label="Default App">
-          <RadioGroup name="defaultApp">
-            <Radio value={routes.HOME.key} label={routes.HOME.title} />
-            <Radio value={routes.BOOKMARK.key} label={routes.BOOKMARK.title} />
-          </RadioGroup>
-        </FormItem>
         <FormItem formKey="settings.general.color" label="Theme">
           {({ onChangeValue, value }) => {
             return (
@@ -262,63 +136,6 @@ const WorkspaceModal = ({
     );
   };
 
-  const renderHome = () => {
-    return (
-      <>
-        <FormItem
-          formKey="settings.home.userName"
-          label="Your Name"
-          componentType="input"
-        >
-          <Input />
-        </FormItem>
-        <FormItem formKey="settings.home.clockType" label="Clock Type">
-          <RadioGroup name="clockType">
-            <Radio value="12hr" label="12 Hr" />
-            <Radio value="24hr" label="24 Hr" />
-          </RadioGroup>
-        </FormItem>
-        <FormItem
-          formKey="settings.home.showGreeting"
-          label="Show Greeting"
-          componentType="switch"
-        >
-          <Switch />
-        </FormItem>
-        <FormItem formKey="settings.home.imageType" label="Background Image">
-          <Select options={imageTypes} />
-        </FormItem>
-        {formik.values?.settings?.home?.imageType === "CUSTOM" ? (
-          <FormikProvider value={formik}>
-            <MultiImage
-              formKey="settings.home.imageConfig.customImageUrls"
-              value={formik.values.settings.home.imageConfig.customImageUrls}
-              setValue={formik.setFieldValue}
-            />
-          </FormikProvider>
-        ) : null}
-        {formik.values?.settings?.home?.imageType === "UNSPLASH" ? (
-          <FormItem
-            formKey="settings.home.imageConfig.unsplashCategories"
-            label="Image Categories"
-          >
-            <Select isMulti options={unsplashCategories} />
-          </FormItem>
-        ) : null}
-        {["UNSPLASH", "CUSTOM"].includes(
-          formik.values?.settings?.home?.imageType,
-        ) ? (
-          <FormItem
-            formKey="settings.home.imageConfig.updateInterval"
-            label="Image Update Interval"
-          >
-            <Select options={updateIntervalOptions} />
-          </FormItem>
-        ) : null}
-      </>
-    );
-  };
-
   const renderBookmark = () => {
     return (
       <FormItem
@@ -333,7 +150,6 @@ const WorkspaceModal = ({
 
   const rendereds = {
     GENERAL: renderGeneral,
-    HOME: renderHome,
     BOOKMARK: renderBookmark,
   };
 

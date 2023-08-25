@@ -20,7 +20,8 @@ const Main = (): JSX.Element => {
     try {
       await initWorkpaceStorage();
       setIsLoading(false);
-    } catch (err) {}
+    } catch (err) {
+    }
   };
 
   useEffect(() => {

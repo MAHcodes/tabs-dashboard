@@ -21,19 +21,8 @@ class WorkspaceModal extends BaseModal {
       icon: "ri-user-line",
       settings: {
         general: {
-          defaultApp: "HOME",
+          defaultApp: "BOOKMARK",
           color: "color-1",
-        },
-        home: {
-          userName: "",
-          clockType: "12hr",
-          showGreeting: true,
-          imageType: "UNSPLASH",
-          imageConfig: {
-            customImageUrls: [],
-            unsplashCategories: ["nature"],
-            updateInterval: "DAY-1",
-          },
         },
         bookmark: {
           openInNewTab: true,

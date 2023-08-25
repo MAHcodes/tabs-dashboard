@@ -1,12 +1,7 @@
 export const routes = {
-  HOME: {
-    key: "HOME",
-    path: "/",
-    title: "Home",
-  },
   BOOKMARK: {
     key: "BOOKMARK",
-    path: "/bookmark",
+    path: "/",
     title: "Bookmark",
   },
   ONBOARDING: {

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 
 import AppContext from "src/AppContext";
@@ -10,24 +9,6 @@ import WorkspaceModal from "components/WorkspaceModal";
 import SyncOptions from "components/SyncOptions";
 
 import "./index.scss";
-
-interface Routes {
-  title: string;
-  path: string;
-  exact?: boolean;
-}
-
-const routes: Routes[] = [
-  {
-    title: "Home",
-    path: "/",
-    exact: true,
-  },
-  {
-    title: "Bookmark",
-    path: "/bookmark",
-  },
-];
 
 const Header = (): JSX.Element => {
   const { workspace, setWorkSpace, workspaceList } = useContext(AppContext);
@@ -116,13 +97,6 @@ const Header = (): JSX.Element => {
         />
       </Modal>
       <div className="nav-block">
-        {routes.map(({ title, path, ...rest }) => {
-          return (
-            <NavLink key={path} to={path} {...rest}>
-              {title}
-            </NavLink>
-          );
-        })}
         <div className="setting-block">
           <a onClick={(event) => onClickSettings(event, workspace)}>
             <i className="ri-settings-3-line" />
