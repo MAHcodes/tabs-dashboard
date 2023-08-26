@@ -51,9 +51,14 @@
   margin-bottom: 10px;
   border-radius: 4px;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     background: var(--gray-700);
+
+    .close-btn {
+      opacity: 1;
+    }
   }
 
   .fav-img {
@@ -72,5 +77,28 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .close-btn {
+    padding: 0px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    background-color: inherit;
+    border-color: transparent;
+    position: absolute;
+    inset: 50% 5px auto auto;
+    transform: translateY(-50%);
+    opacity: 0;
+
+    &:hover {
+      background-color: var(--gray-800);
+      border-color: var(--danger-color);
+      color: var(--danger-color);
+    }
   }
 }
