@@ -6,15 +6,21 @@ import BookmarkContext from "../BookmarkContext";
 const TabCard = ({ tabId }): JSX.Element => {
   const { tabData } = useContext(BookmarkContext);
 
-  const handleCloseTab = () => {
-    console.log("fire");
+  const data = tabData[tabId] || {};
+
+  const handleCloseTab = (event) => {
+    event.stopPropagation()
     chrome.tabs.remove(tabId);
   }
 
-  const data = tabData[tabId] || {};
+  const handleFocusTab = () => {
+    chrome.tabs.highlight({
+      tabs: data.index,
+    });
+  }
 
   return (
-    <div className="active-list-item">
+    <div className="active-list-item" onClick={handleFocusTab}>
       {data.favIconUrl ? (
         <img className="fav-img" src={data.favIconUrl} />
       ) : (
