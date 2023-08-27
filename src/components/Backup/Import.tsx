@@ -19,7 +19,7 @@ const ImportButton = ({children, ...props}) => {
       })
       .catch((e) => {
         toast.error("Import Failed!");
-        console.error(e);
+        console.log(e);
       });
   };
 
