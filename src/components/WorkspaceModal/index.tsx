@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import _isEqual from "lodash/isEqual";
 import { object, string, boolean } from "yup";
 import { toast } from "react-toastify";
 import classNames from "classnames";
@@ -56,8 +55,13 @@ const WorkspaceModal = ({
   onSuccess,
   showHeader,
 }) => {
-  const { updateWorkspace, setWorkSpace, workspaceList, removeWorkspace } =
-    useContext(AppContext);
+  const {
+    updateWorkspace,
+    setWorkSpace,
+    workspaceList,
+    removeWorkspace,
+    workspace,
+  } = useContext(AppContext);
   const { confirm } = useConfirm();
   const [activeTab, setActiveTab] = useState("GENERAL");
   const { onSubmitForm, showError } = useFormError();

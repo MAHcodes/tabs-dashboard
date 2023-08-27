@@ -8,6 +8,7 @@ import Popover from "components/Popover";
 import WorkspaceModal from "components/WorkspaceModal";
 
 import "./index.scss";
+import Backup from "components/Backup";
 
 const Header = (): JSX.Element => {
   const { workspace, setWorkSpace, workspaceList } = useContext(AppContext);
@@ -96,6 +97,9 @@ const Header = (): JSX.Element => {
         />
       </Modal>
       <div className="nav-block">
+        <div className="setting-block">
+          <Backup />
+        </div>
         <div className="setting-block">
           <a onClick={(event) => onClickSettings(event, workspace)}>
             <i className="ri-settings-3-line" />

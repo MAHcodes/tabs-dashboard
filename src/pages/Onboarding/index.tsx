@@ -8,6 +8,8 @@ import IconSelector from "components/IconSelector";
 import AppContext from "src/AppContext";
 
 import "./index.scss";
+import Backup from "../../components/Backup";
+import ImportButton from "../../components/Backup/Import";
 
 const Onboarding = () => {
   const history = useHistory();
@@ -45,8 +47,25 @@ const Onboarding = () => {
         <div className="sub-title">
           Your personal browser new tab dashboard with multiple workspaces
         </div>
-        <Button size="large" onClick={nextStep}>
-          Next
+
+        <ImportButton
+          size="large"
+          outline
+          iconLeft="ri-file-upload-line"
+          className="gap"
+        >
+          Restore a backup file
+        </ImportButton>
+
+        <div style={{ marginBlock: "1rem" }}>OR</div>
+
+        <Button
+          size="large"
+          onClick={nextStep}
+          iconLeft="ri-arrow-right-s-line"
+          className="invert gap"
+        >
+          Continue
         </Button>
       </div>
     );
