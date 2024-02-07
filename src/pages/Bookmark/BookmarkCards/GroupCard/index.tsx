@@ -251,8 +251,8 @@ const GroupCard = ({
           {groupData.name}
           <i
             className={classNames("icon-collapse", {
-              "ri-arrow-up-s-line": groupData?.collapse,
-              "ri-arrow-down-s-line": !groupData?.collapse,
+              "ri-arrow-up-s-line": !groupData?.collapse,
+              "ri-arrow-down-s-line": groupData?.collapse,
             })}
           />
         </div>
