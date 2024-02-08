@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  border-right: 1px solid var(--border-primary);
-  width: 250px;
+  border-left: 1px solid var(--border-primary);
+  width: 251px;
 
   &.empty {
     flex: 1;

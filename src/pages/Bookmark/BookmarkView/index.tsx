@@ -386,7 +386,7 @@ const BookmarkView = (): JSX.Element => {
     >
       <div className="bookmark-wrapper">
         {showNewGroupDrop ? <NewGroupDrop /> : null}
-        <Collections />
+        <ActiveTabs isSortingContainer={isSortingContainer} />
         {data?.groupIds?.length ? (
           <div className="bookmark-body-wrapper">
             {enableBulkAction ? (
@@ -421,7 +421,7 @@ const BookmarkView = (): JSX.Element => {
             <BookmarkCards isSortingContainer={isSortingContainer} />
           </div>
         ) : null}
-        <ActiveTabs isSortingContainer={isSortingContainer} />
+        <Collections />
       </div>
       {createPortal(
         <DragOverlay adjustScale={false} dropAnimation={dropAnimation}>
