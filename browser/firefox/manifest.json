@@ -9,12 +9,18 @@
     "48": "assets/icons/icon48.png",
     "128": "assets/icons/icon128.png"
   },
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "newtab/index.html"
   },
   "permissions": [
     "tabs",
     "storage",
     "bookmarks"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e07e1f41-9ec7-434f-9a0d-1e4630c68ba2}",
+      "strict_min_version": "42.0"
+    }
+  }
 }

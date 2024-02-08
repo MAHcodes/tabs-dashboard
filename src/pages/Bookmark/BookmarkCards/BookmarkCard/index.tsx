@@ -42,7 +42,7 @@ const BookmarkCard = ({
     setIsOpenEditModal(!isOpenEditModal);
   };
 
-  const onClickBookmark = () => {
+  const onClickBookmark = (e) => {
     if (enableBulkAction) {
       if (isBulkSelected) {
         setBulkActionIds(bulkActionIds.filter((id) => id !== bookmarkId));
@@ -50,8 +50,14 @@ const BookmarkCard = ({
         setBulkActionIds((ids) => [...ids, bookmarkId]);
       }
     } else {
-      if (workspace?.settings?.bookmark?.openInNewTab) {
-        createTabs([{ url: bookmark.url, pinned: bookmark.pinned }]);
+      if (e.ctrlKey) {
+        createTabs([
+          { url: bookmark.url, pinned: bookmark.pinned, active: false },
+        ]);
+      } else if (workspace?.settings?.bookmark?.openInNewTab) {
+        createTabs([
+          { url: bookmark.url, pinned: bookmark.pinned, active: true },
+        ]);
       } else {
         updateCurrentTab({ url: bookmark.url, pinned: bookmark.pinned });
       }
