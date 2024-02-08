@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     font-size: 1.1rem;
-    margin-bottom: 15px;
     height: 30px;
 
     .group-name-edit {
@@ -49,6 +48,7 @@
   .group-card-content {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 15px;
 
     .empty-block {
       text-align: center;

@@ -11,6 +11,7 @@
   color: var(--text-secondary);
   border: 1px dashed var(--text-secondary);
   margin: 10px;
+  right: 0;
 
   &.highlight {
     border-color: var(--primary-color);
