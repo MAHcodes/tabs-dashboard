@@ -6,6 +6,11 @@
 
 > This is a fork from the original project [fire-dashboard](https://github.com/deeppatel234/fire-dashboard) by [deeppatel234](https://github.com/deeppatel234/)
 
+<p align="center">
+  <img src="https://github.com/MAHcodes/tabs-dashboard/blob/master/store-assets/dark.png?raw=true" width="50%"/>
+  <img src="https://github.com/MAHcodes/tabs-dashboard/blob/master/store-assets/light.png?raw=true" width="50%"/>
+</p>
+
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Installation
