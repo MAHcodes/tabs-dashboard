@@ -43,7 +43,7 @@ const Onboarding = () => {
     return (
       <div className="welcome-block">
         <img className="logo" src="/assets/icons/icon500.png" />
-        <div className="title">Welcome to Fire Dashboard</div>
+        <div className="title">Welcome to Tabs Dashboard</div>
         <div className="sub-title">
           Your personal browser new tab dashboard with multiple workspaces
         </div>

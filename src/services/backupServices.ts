@@ -30,7 +30,7 @@ export const exportWorkspaces = async () => {
   // Create a download link for the file
   const downloadLink = document.createElement("a");
   downloadLink.href = URL.createObjectURL(blob);
-  downloadLink.download = "fire-dashboard.json";
+  downloadLink.download = "tabs-dashboard.json";
   downloadLink.click();
   URL.revokeObjectURL(downloadLink.href);
 };
