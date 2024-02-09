@@ -10,6 +10,7 @@
 
 - Download extension from
     - [Chrome Web Store](https://chrome.google.com/webstore/detail/fire-dashboard/ljpgbnpckoolgelpcbpfcafklbpkodeg)
+    - [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/fire-dashboard/)
 
 
 ## Overview
