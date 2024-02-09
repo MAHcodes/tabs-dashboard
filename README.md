@@ -1,13 +1,12 @@
 <p align="center">
-  <img src="https://github.com/MAHcodes/tabs-dashboard/blob/master/extension/assets/icons/icon48.png?raw=true" />
-    Tabs Dashboard
+  <img src="https://github.com/MAHcodes/tabs-dashboard/blob/master/store-assets/banner.png?raw=true" width="70%" />
 </p>
 
 <h2 align="center">All-in-one productivity tool with multiple workspace support</h2>
 
-[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
 > This is a fork from the original project [fire-dashboard](https://github.com/deeppatel234/fire-dashboard) by [deeppatel234](https://github.com/deeppatel234/)
+
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Installation
 
@@ -17,7 +16,7 @@
 
 ## Overview
 
-Tab Dashboard and Bookmark Manager
+Tabs Dashboard and Bookmark Manager
 
 Tabs dashboard is your all-in-one productivity tool with multiple workspace support.
 

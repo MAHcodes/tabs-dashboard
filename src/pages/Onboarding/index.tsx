@@ -45,7 +45,7 @@ const Onboarding = () => {
         <img className="logo" src="/assets/icons/icon500.png" />
         <div className="title">Welcome to Tabs Dashboard</div>
         <div className="sub-title">
-          Your personal browser new tab dashboard with multiple workspaces
+          Your personal browser tabs dashboard with multiple workspaces
         </div>
 
         <ImportButton
