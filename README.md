@@ -16,21 +16,21 @@
 
 ## Overview
 
-Tabs Dashboard and Bookmark Manager
+Tabs Dashboard and Bookmarks Manager
 
 Tabs dashboard is your all-in-one productivity tool with multiple workspace support.
 
-Replace the new tab page with a personal dashboard and bookmark management.
+Replace the new tab page with a personal dashboard and bookmarks management.
 
-Tabs Dashboard have a bookmark management app that is better than bookmarks. Organize your browser tabs and access them quickly anywhere.
+Tabs Dashboard have a bookmarks management app that is better than bookmarks. Organize your browser tabs and access them quickly anywhere.
 
-Tabs Dashboard's Bookmark management app is better than bookmarks. It levels up your browser. It is a visual workspace that lives on every new tab. Add new tabs by dragging and dropping your browser tabs into collections or save a whole session in just one click. 
+Tabs Dashboard's Bookmarks management app is better than bookmarks. It levels up your browser. It is a visual workspace that lives on every new tab. Add new tabs by dragging and dropping your browser tabs into collections or save a whole session in just one click. 
 
  🌟  🌟  🌟  Key Features  🌟  🌟  🌟
 
 - Organised your personal and work-related stuff with multi workspace support
 - Theme support
-- Bookmark management that better than browser bookmarks
+- Bookmarks management that better than browser bookmarks
 - Save your sessions in collections to save your tabs
 
 Note: For the best experience, after installing Tabs Dashboard click the ‘Keep it’ button on the ‘Change back to Google’ notification. This will show Tabs Dashboard on each new tab as intended. 
